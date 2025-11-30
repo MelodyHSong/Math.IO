@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".MenuActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.10" />
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Math.IO"
+        android:textColor="#FFFFFF"
+        android:textSize="80sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_top" />
+
+    <TextView
+        android:id="@+id/subtitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontStyle="italic"
+        android:text="@string/subtitle_text"
+        android:textColor="#AAAAAA"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+
+    <TextView
+        android:id="@+id/categoryHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Select Category:"
+        android:textColor="#FFAA00"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subtitleTextView" />
+
+    <GridLayout
+        android:id="@+id/categoryGridLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:columnCount="3"
+        android:rowCount="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/categoryHeader">
+
+        <Button style="@style/MenuButton" android:text="Add" android:onClick="selectCategory" android:tag="ADDITION" android:backgroundTint="#ff409e"/>
+        <Button style="@style/MenuButton" android:text="Sub" android:onClick="selectCategory" android:tag="SUBTRACTION" android:backgroundTint="#19a320"/>
+        <Button style="@style/MenuButton" android:text="Multi" android:onClick="selectCategory" android:tag="MULTIPLICATION" android:backgroundTint="#ff1641"/>
+
+        <Button style="@style/MenuButton" android:text="Div" android:onClick="selectCategory" android:tag="DIVISION" android:backgroundTint="#00AAFF"/>
+        <Button style="@style/MenuButton" android:text="Fact!" android:onClick="selectCategory" android:tag="FACTORIALS" android:backgroundTint="#BB00FF"/>
+        <Button style="@style/MenuButton" android:text="Random" android:onClick="selectCategory" android:tag="RANDOM" android:backgroundTint="#FFFF00" android:textColor="#000000"/>
+
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/difficultyHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Select Difficulty:"
+        android:textColor="#FFAA00"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/categoryGridLayout" />
+
+    <LinearLayout
+        android:id="@+id/difficultyLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/difficultyHeader">
+
+        <Button style="@style/MenuButton.Difficulty" android:text="Easy" android:onClick="selectDifficulty" android:tag="EASY" android:backgroundTint="#4CAF50"/>
+        <Button style="@style/MenuButton.Difficulty" android:text="Hard" android:onClick="selectDifficulty" android:tag="HARD" android:backgroundTint="#FF9800"/>
+        <Button style="@style/MenuButton.Difficulty" android:text="Genius" android:onClick="selectDifficulty" android:tag="GENIUS" android:backgroundTint="#F44336"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/startGameButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Start Game"
+        android:textSize="24sp"
+        android:enabled="false"
+        android:onClick="startGame"
+        android:layout_marginTop="40dp"
+        app:layout_constraintTop_toBottomOf="@+id/difficultyLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/aboutButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="About"
+        android:textSize="18sp"
+        android:onClick="openAbout"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/startGameButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
